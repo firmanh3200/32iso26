@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QnA Tim ISO 2026</title>
+    <style>
+        :root {
+            --primary-color: #1e40af; /* Biru tua */
+            --secondary-color: #3b82f6; /* Biru cerah */
+            --accent-color: #10b981; /* Hijau */
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 16px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+            padding: 24px 16px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Bagian QnA */
+        .qna-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .qna-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--secondary-color);
+            transition: transform 0.2s;
+        }
+
+        .qna-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .question {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .question::before {
+            content: "❓";
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+
+        .answer-link {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.2s;
+            word-break: break-all; /* Agar link panjang tidak merusak layout */
+        }
+
+        .answer-link:hover {
+            background-color: var(--primary-color);
+        }
+
+        .answer-link::before {
+            content: "📄";
+            margin-right: 8px;
+        }
+
+        /* Bagian Histori Dokumen */
+        .history-section {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .history-title {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .history-title::before {
+            content: "📂";
+            margin-right: 8px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch; /* Smooth scroll di iOS */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 400px; /* Memaksa scroll di layar sangat kecil */
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        th {
+            background-color: var(--bg-color);
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        td {
+            font-size: 0.9rem;
+        }
+
+        .doc-link {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            transition: background-color 0.2s;
+        }
+
+        .doc-link:hover {
+            background-color: #059669;
+        }
+
+        /* Penyesuaian untuk layar lebih besar */
+        @media (min-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            .question {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>QnA Tim ISO 2026</h1>
+            <p>Dokumen Tanya Jawab & Histori</p>
+        </header>
+
+        <div class="qna-section">
+            <!-- QnA 1 -->
+            <div class="qna-card">
+                <div class="question">Di awal 2026 terjadi pergantian kepala BPS Provinsi Jawa Barat, begitu pula dengan tim ISO yang mengalami perubahan. Apa yang harus dilakukan supaya kegiatan surveilans 1 berjalan lancar?</div>
+                <a href="https://docs.google.com/document/d/1rUukt8p5-yNRdO3G2STYq-B3hqfihEp9EadFs9J0XGs/edit?usp=sharing" target="_blank" class="answer-link">Lihat Jawaban</a>
+            </div>
+
+            <!-- QnA 2 -->
+            <div class="qna-card">
+                <div class="question">Apa saja isi formulir Manajemen Perubahan yang harus diisi?</div>
+                <a href="https://docs.google.com/document/d/1uXi3vAWEMKx8m2Piy92rXqjBdDPqEyvvGNyB2XyFlvQ/edit?usp=sharing" target="_blank" class="answer-link">Lihat Jawaban</a>
+            </div>
+
+            <!-- QnA 3 -->
+            <div class="qna-card">
+                <div class="question">Sehubungan dengan perubahan pimpinan puncak dan tim, dokumen apa saja yang harus direvisi?</div>
+                <a href="https://docs.google.com/document/d/1WOIAbDJLrNdo25W1mXm4Jdff4hcFdrk1gzRL00xlBeM/edit?usp=sharing" target="_blank" class="answer-link">Lihat Jawaban</a>
+            </div>
+
+            <!-- QnA 4 -->
+            <div class="qna-card">
+                <div class="question">Bagaimana kriteria kompetensi yang harus dipenuhi oleh tim ISO baru?</div>
+                <a href="https://docs.google.com/document/d/1BeSOOZLsOZICJU7g5HR7kh23AkZzW0BAuIL5JEFTNXE/edit?usp=sharing" target="_blank" class="answer-link">Lihat Jawaban</a>
+            </div>
+
+            <!-- QnA 5 -->
+            <div class="qna-card">
+                <div class="question">Bagaimana timeline ideal sejak tim baru (SK 2026) dibentuk sampai dengan submit dokumen di tanggal 13 Agustus, dan audit badan sertifikasi tanggal 27 Agustus 2026?</div>
+                <a href="https://docs.google.com/document/d/1WG-t0cRti5sy866DEZs-04qE2hE1F0q0vI3VOnWVYjw/edit?usp=sharing" target="_blank" class="answer-link">Lihat Jawaban</a>
+            </div>
+
+            <!-- QnA 6 -->
+            <div class="qna-card">
+                <div class="question">Bagaimana timeline per 2 minggu dimulai dari 1 Juni 2026?</div>
+                <a href="https://docs.google.com/document/d/11dyqIINB85tr9LnA1mLyva4rWTKSI-t30HjifkrRxbk/edit?usp=sharing" target="_blank" class="answer-link">Lihat Jawaban</a>
+            </div>
+
+            <!-- QnA 7 -->
+            <div class="qna-card">
+                <div class="question">Apa saja agenda wajib dalam Rapat Tinjauan Manajemen (RTM)?</div>
+                <a href="https://docs.google.com/document/d/1H-3_oTHSSJ6-KWWe4FrKPOoA5JAeKUQvsAYX8S1YfQo/edit?usp=sharing" target="_blank" class="answer-link">Lihat Jawaban</a>
+            </div>
+
+            <!-- QnA 8 -->
+            <div class="qna-card">
+                <div class="question">Bagaimana prosedur formal untuk melakukan perubahan dokumen SMM?</div>
+                <a href="https://docs.google.com/document/d/1TjfEWqdJPDe2XE6N2-SoJFdtSNOCc3CUi1B0JPo7n6M/edit?usp=sharing" target="_blank" class="answer-link">Lihat Jawaban</a>
+            </div>
+
+            <!-- QnA 9 -->
+            <div class="qna-card">
+                <div class="question">Dokumen apa saja yang harus disubmit?</div>
+                <a href="https://docs.google.com/document/d/1ZcwihD9d-EUuW9Wl7SSpYmyp_Is948LUfXjFagV7jY0/edit?usp=sharing" target="_blank" class="answer-link">Lihat Jawaban</a>
+            </div>
+        </div>
+
+        <!-- Histori Dokumen -->
+        <div class="history-section">
+            <h2 class="history-title">Histori Dokumen</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Jenis Dokumen</th>
+                            <th>Tautan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Sertifikasi 2025</td>
+                            <td><a href="https://drive.google.com/drive/folders/1uTNnMaq2wj7A2AZ4wfBfXk1H0C1os3C5" target="_blank" class="doc-link">Buka Folder</a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Template Standardisasi Pusat</td>
+                            <td><a href="https://drive.google.com/drive/folders/1fwDGHZX9P_lq2KLQCFzkOXxvS_EwRuiq?usp=drive_link" target="_blank" class="doc-link">Buka Folder</a></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Drive Submit Surveilans 1</td>
+                            <td><a href="https://drive.google.com/drive/folders/19-oact0YtQHbMEK021aYseLphwbMDOU0?usp=sharing" target="_blank" class="doc-link">Buka Folder</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
